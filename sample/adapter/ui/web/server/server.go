@@ -17,6 +17,7 @@ import (
 	"github.com/teamlint/mons/sample/adapter/ui/web/handler"
 	svc "github.com/teamlint/mons/sample/application/service"
 	shared "github.com/teamlint/mons/shared/adapter/repository"
+	natsevent "github.com/teamlint/mons/shared/application/event/nats"
 
 	kitlog "github.com/go-kit/kit/log"
 	_ "github.com/go-sql-driver/mysql"
@@ -27,6 +28,7 @@ import (
 var (
 	connStr  = "root:123456@tcp(localhost:3306)/mons?charset=utf8mb4&parseTime=True&loc=Local"
 	httpAddr = ":8080"
+	natsAddr = "nats://127.0.0.1:4222"
 	logger   kitlog.Logger
 )
 
@@ -42,10 +44,19 @@ func Run() {
 	// repository
 	repoCtx := shared.NewGormRepositoryContext(db)
 	repo := mysql.NewUserRepository()
+	// event config
+	evtConfig := natsevent.Config{
+		ClusterID: "test-cluster",
+		ClientID:  "nats_client_web",
+		URL:       natsAddr,
+	}
+	// eventer
+	eventer := natsevent.NewNATSEventer(&evtConfig)
 	// service
-	svcOpt := service.UserServiceOption{
+	svcOpt := service.UserServiceConfig{
 		UserRepo:    repo,
 		RepoContext: repoCtx,
+		Eventer:     eventer,
 	}
 	// svc := service.New([]service.Middleware{})
 	svc := service.NewUserService(svcOpt)
