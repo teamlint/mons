@@ -1,0 +1,17 @@
+DisablePathCorrection: false
+EnablePathEscape: false
+FireMethodNotAllowed: true
+DisableBodyConsumptionOnUnmarshal: true
+DisableVersionChecker: true
+TimeFormat: 2006-01-02 15:04:05
+Charset: UTF-8
+RemoteAddrHeaders:
+  X-Real-Ip: true
+  X-Forwarded-For: true
+  CF-Connecting-IP: true
+Other:
+  Debug: true
+  SiteTitle: "Mons"
+  Copyright: "teamlint.com"
+  ServerPort: 9080
+  DBConnectionString: "root:123456@tcp(localhost:3306)/mons?charset=utf8mb4&parseTime=True&loc=Local"

@@ -1,0 +1,105 @@
+# https://taskfile.dev
+
+version: '2'
+
+output: 'prefixed'
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+        - task: run
+    silent: true
+    desc: default task
+  run:
+    deps: [run-web,run-server]
+    cmds:
+      - echo 'run all'
+    desc: run web server, run api server
+  run-web:
+    deps: [build-web]
+    dir: ./cmd/ui/web
+    cmds:
+      - echo 'run web server'
+      - ./web
+    desc: build web & run
+  build-web:
+    cmds:
+      - go build -v -o ./cmd/ui/web/web ./cmd/ui/web/main.go
+    method: checksum
+    sources:
+      - './**/*.go'
+    desc: build web
+  run-server:
+    deps: [build-server]
+    dir: ./cmd/server
+    cmds:
+      - echo 'run api-server'
+      - ./server
+    desc: build api server & run api server
+  build-server:
+    dir: ./cmd/server
+    cmds:
+      - go build -v -o ./server ./main.go
+    method: checksum
+    sources:
+      - './**/*.go'
+    desc: build api server
+  go-web:
+    dir: ./cmd/ui/web/
+    cmds:
+      - echo 'web server starting...'
+      - go run main.go
+    silent: true
+    desc: run web server used by 'go run'
+  gen:
+    dir: ./application/transport/grpc/pb
+    cmds:
+      - echo 'proto generating...'
+      - protoc --go_out=plugins=grpc:. *.proto
+      - echo 'proto generated.'
+    silent: true
+    desc: generate protocol code
+  api:
+    # deps: [server]
+    deps:
+      - task: server
+    cmds:
+      - echo 'api starting...'
+      - task: client
+    silent: true
+    desc: generate protocol code
+  go-server:
+    dir: ./cmd/server/
+    cmds:
+      - echo 'api server starting...'
+      - go run main.go 
+    silent: true
+    desc: run api server used by 'go run'
+  client:
+    dir: ./cmd/client/
+    cmds:
+        - task: client-ts
+          vars: {ts: "http"}
+        - task: client-ts
+          vars: {ts: "nats"}
+        - task: client-ts
+          vars: {ts: "grpc"}
+    silent: true
+    desc: run all api client
+  client-ts:
+    dir: ./cmd/client/
+    cmds:
+      - echo api cient.{{.ts}} starting...
+      - echo '---------------------------------------------------------------------------------' 
+      - go run main.go --ts={{.ts}}
+      - echo '---------------------------------------------------------------------------------' 
+    silent: true
+    desc: run transport protocol api client, used var 'ts'
+  gv:
+    cmds:
+      - echo generate di graph image 
+      - dot -Tpng -o di.png di.gv
+    silent: true
+    desc: generate graphviz dot file

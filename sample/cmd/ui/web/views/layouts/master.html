@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>{{.title}}</title>
+        <style>
+            li { display: inline;}
+            hr{ border: 1px #ccc dashed;}
+        </style>
+        {{template "head" .}}
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/about">about</a></li>
+            <li><a href="/user/23f9db62-a145-11e9-ae8f-132379f358df">get user</a></li>
+        </ul>
+        <hr/>
+        {{template "content" .}}
+        <hr>
+        {{include "layouts/footer"}}
+    </body>
+</html>
