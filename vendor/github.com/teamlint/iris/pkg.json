@@ -1,0 +1,3124 @@
+{
+  "name": "github.com/teamlint/iris",
+  "internal": false,
+  "resolved": true,
+  "deps": [
+    {
+      "name": "bytes",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "context",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "io",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "io/ioutil",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "log",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "net",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "net/http",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "os",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "os/user",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "path/filepath",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "runtime",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "sync",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "time",
+      "internal": true,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "github.com/teamlint/iris/cache",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "strconv",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/cache/client",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io/ioutil",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "net/http",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sync",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "time",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/cache/cfg",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "time",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            },
+            {
+              "name": "github.com/teamlint/iris/cache/client/rule",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "github.com/teamlint/iris/cache/ruleset",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/context",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": [
+                    {
+                      "name": "bufio",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "bytes",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/json",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/xml",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "fmt",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "io",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "io/ioutil",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "mime",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "mime/multipart",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "net",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "net/http",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "net/url",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "os",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "path",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "path/filepath",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "reflect",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "regexp",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "runtime",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "strconv",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "strings",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "sync",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "sync/atomic",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "time",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/contrib/formbinder",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "encoding",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "net/url",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "time",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/core/errors",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "runtime",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "sync",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/github.com/iris-contrib/go.uuid",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "bytes",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "crypto/md5",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "crypto/rand",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "crypto/sha1",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "database/sql/driver",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "encoding/binary",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "encoding/hex",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "fmt",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "hash",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "io",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "net",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "os",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "sync",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "time",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/core/memstore",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bytes",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/gob",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "math",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "time",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/core/errors",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/macro",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "regexp",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/core/memstore",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/macro/interpreter/ast",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/macro/interpreter/parser",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "fmt",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strconv",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strings",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "github.com/teamlint/iris/macro/interpreter/ast",
+                              "internal": false,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "github.com/teamlint/iris/macro/interpreter/lexer",
+                              "internal": false,
+                              "resolved": true,
+                              "deps": [
+                                {
+                                  "name": "github.com/teamlint/iris/macro/interpreter/token",
+                                  "internal": false,
+                                  "resolved": true,
+                                  "deps": null
+                                }
+                              ]
+                            },
+                            {
+                              "name": "github.com/teamlint/iris/macro/interpreter/token",
+                              "internal": false,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/Shopify/goreferrer",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "encoding/json",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "net/url",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "path",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/golang.org/x/net/publicsuffix",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "fmt",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "net/http/cookiejar",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strings",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/fatih/structs",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "errors",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/iris-contrib/blackfriday",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bytes",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "html",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "regexp",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode/utf8",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/github.com/shurcooL/sanitized_anchor_name",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "unicode",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/json-iterator/go",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bytes",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/base64",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/json",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "errors",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "math",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "math/big",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "sort",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "sync/atomic",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "time",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode/utf16",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode/utf8",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unsafe",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/klauspost/compress/gzip",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bufio",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/binary",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "errors",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "time",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/github.com/klauspost/compress/flate",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "bufio",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "fmt",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "io",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "math",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "sort",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strconv",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "sync",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "github.com/teamlint/iris/vendor/github.com/klauspost/cpuid",
+                              "internal": false,
+                              "resolved": true,
+                              "deps": [
+                                {
+                                  "name": "strings",
+                                  "internal": true,
+                                  "resolved": true,
+                                  "deps": null
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/github.com/klauspost/crc32",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "hash",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "sync",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "unsafe",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/microcosm-cc/bluemonday",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bytes",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/base64",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "net/url",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "regexp",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "github.com/teamlint/iris/vendor/golang.org/x/net/html",
+                          "internal": false,
+                          "resolved": true,
+                          "deps": [
+                            {
+                              "name": "bufio",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "bytes",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "errors",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "fmt",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "io",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strconv",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "strings",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "unicode/utf8",
+                              "internal": true,
+                              "resolved": true,
+                              "deps": null
+                            },
+                            {
+                              "name": "github.com/teamlint/iris/vendor/golang.org/x/net/html/atom",
+                              "internal": false,
+                              "resolved": true,
+                              "deps": null
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/github.com/teamlint/golog",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "github.com/teamlint/iris/vendor/gopkg.in/yaml.v2",
+                      "internal": false,
+                      "resolved": true,
+                      "deps": [
+                        {
+                          "name": "bytes",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "encoding/base64",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "errors",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "fmt",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "io",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "math",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "reflect",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "regexp",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "sort",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strconv",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "strings",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "sync",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "time",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        },
+                        {
+                          "name": "unicode/utf8",
+                          "internal": true,
+                          "resolved": true,
+                          "deps": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "github.com/teamlint/iris/cache/entry",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "net/http",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "regexp",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strconv",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "time",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/cache/cfg",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            },
+            {
+              "name": "github.com/teamlint/iris/cache/ruleset",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/cache/uri",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "net/url",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strconv",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strings",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "time",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/cache/cfg",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            },
+            {
+              "name": "github.com/teamlint/iris/context",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/context",
+      "internal": false,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "github.com/teamlint/iris/core/errors",
+      "internal": false,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "github.com/teamlint/iris/core/handlerconv",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "net/http",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/errors",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/core/host",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "context",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "crypto/tls",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/http",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/http/httputil",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/url",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "os",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "os/signal",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "runtime",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strings",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync/atomic",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "syscall",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/errors",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/netutil",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "crypto/tls",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "net",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "net/http",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "os",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "regexp",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "time",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/core/errors",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/teamlint/golog",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/golang.org/x/crypto/acme/autocert",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "bytes",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "context",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/ecdsa",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/elliptic",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/rand",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/rsa",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/tls",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/x509",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "crypto/x509/pkix",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "encoding/pem",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "errors",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "fmt",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "io",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "io/ioutil",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "log",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "math/rand",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "net",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "net/http",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "os",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "path",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "path/filepath",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "runtime",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strconv",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strings",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "sync",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "time",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/vendor/golang.org/x/crypto/acme",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": [
+                    {
+                      "name": "bytes",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "context",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/ecdsa",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/elliptic",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/rand",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/rsa",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/sha256",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/sha512",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/tls",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "crypto/x509",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/base64",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/hex",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/json",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "encoding/pem",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "errors",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "fmt",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "io",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "io/ioutil",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "math/big",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "net/http",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "strconv",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "strings",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "sync",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "time",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/golang.org/x/crypto/acme/autocert",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/core/netutil",
+      "internal": false,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "github.com/teamlint/iris/core/router",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "errors",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "html",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io/ioutil",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "mime",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "mime/multipart",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/http",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/textproto",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "net/url",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "os",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "path",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "path/filepath",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sort",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strconv",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strings",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/errors",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/netutil",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/macro",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/macro/handler",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "github.com/teamlint/iris/context",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/macro",
+              "internal": false,
+              "resolved": true,
+              "deps": null
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/macro/interpreter/ast",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/macro/interpreter/lexer",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/teamlint/golog",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/middleware/logger",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strconv",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/middleware/logger/vendor/github.com/ryanuber/columnize",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/middleware/recover",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "runtime",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strconv",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/vendor/github.com/BurntSushi/toml",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "bufio",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "encoding",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "errors",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io/ioutil",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "math",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "reflect",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sort",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strconv",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strings",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "unicode",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "unicode/utf8",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/vendor/github.com/teamlint/golog",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "os",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strings",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/teamlint/pio",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bufio",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "encoding/json",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "encoding/xml",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "errors",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io/ioutil",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "os/exec",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "runtime",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sort",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sync",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sync/atomic",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/teamlint/pio/terminal",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "io",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "os",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "syscall",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "unsafe",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "github.com/teamlint/iris/vendor/gopkg.in/yaml.v2",
+      "internal": false,
+      "resolved": true,
+      "deps": null
+    },
+    {
+      "name": "github.com/teamlint/iris/view",
+      "internal": false,
+      "resolved": true,
+      "deps": [
+        {
+          "name": "bytes",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "fmt",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "html/template",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "io/ioutil",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "os",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "path",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "path/filepath",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "strings",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "sync",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "time",
+          "internal": true,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/context",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/core/errors",
+          "internal": false,
+          "resolved": true,
+          "deps": null
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/Joker/jade",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "go/parser",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "html",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io/ioutil",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "log",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "os",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "path/filepath",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "regexp",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "runtime",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "unicode",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "unicode/utf8",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/aymerick/raymond",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io/ioutil",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "log",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "path",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "reflect",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "runtime",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sync",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/aymerick/raymond/ast",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "fmt",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strconv",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strings",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/aymerick/raymond/parser",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "fmt",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "regexp",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "runtime",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strconv",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/vendor/github.com/aymerick/raymond/ast",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "github.com/teamlint/iris/vendor/github.com/aymerick/raymond/lexer",
+                  "internal": false,
+                  "resolved": true,
+                  "deps": [
+                    {
+                      "name": "fmt",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "regexp",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "strings",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "unicode",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    },
+                    {
+                      "name": "unicode/utf8",
+                      "internal": true,
+                      "resolved": true,
+                      "deps": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/eknkc/amber",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "container/list",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "encoding/json",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "errors",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "go/ast",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "go/parser",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "go/token",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "html/template",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "os",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "path/filepath",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "reflect",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "regexp",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sort",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/eknkc/amber/parser",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "bufio",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "bytes",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "container/list",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "fmt",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "io",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "io/ioutil",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "path/filepath",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "regexp",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strings",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "github.com/teamlint/iris/vendor/github.com/flosch/pongo2",
+          "internal": false,
+          "resolved": true,
+          "deps": [
+            {
+              "name": "bufio",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "bytes",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "fmt",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "io/ioutil",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "log",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "math",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "math/rand",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "net/url",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "os",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "path/filepath",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "reflect",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "regexp",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sort",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strconv",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "strings",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "sync",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "time",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "unicode/utf8",
+              "internal": true,
+              "resolved": true,
+              "deps": null
+            },
+            {
+              "name": "github.com/teamlint/iris/vendor/github.com/flosch/pongo2/vendor/github.com/juju/errors",
+              "internal": false,
+              "resolved": true,
+              "deps": [
+                {
+                  "name": "fmt",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "reflect",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "runtime",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                },
+                {
+                  "name": "strings",
+                  "internal": true,
+                  "resolved": true,
+                  "deps": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
