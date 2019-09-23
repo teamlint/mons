@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '2'
+
+vars:
+  GREETING: Hello, World!
+  Service: UserService
+
+tasks:
+  default:
+    cmds:
+      - echo "micro service demo"
+      - task: pb
+      - task: svc
+    silent: true
+  pb:
+    cmds:
+      - echo "{{.Service}} proto grpc code generating..."
+      - protoc --go_out=plugins=grpc:. api/*.proto
+      - echo "{{.Service}} proto grpc code generated."
+    silent: false
+  svc:
+    cmds:
+      - echo "{{.Service}} micro service code generating..."
+      - protoc -I. --gotemplate_out=template_dir=../../templates,debug=true,all=false:. api/*.proto
+      - echo "{{.Service}} micro service code generated."
+    silent: false

@@ -1,0 +1,17 @@
+syntax ="proto3";
+
+package api;
+
+service Echo {
+	rpc Hello (HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest {
+	string msg=1;
+}
+
+message HelloReply {
+	string result=1;
+	int64 err=2;
+	string msg=3;
+}

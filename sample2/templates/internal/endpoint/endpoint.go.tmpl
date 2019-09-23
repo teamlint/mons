@@ -1,0 +1,44 @@
+package endpoint
+{{$file := .File}}
+import (
+	"context"
+
+	kit "github.com/go-kit/kit/endpoint"
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+)
+// Endpoints {{.Service.Name}} endpoints
+type Endpoints struct {
+{{- range .Service.Method}}
+    {{.Name}}Endpoint kit.Endpoint
+{{- end}}
+}
+
+func New(svc api.{{.Service.Name}}Server, mdw map[string][]kit.Middleware) Endpoints {
+	eps := Endpoints{
+	{{- range .Service.Method}}
+		{{.Name}}Endpoint:   Make{{.Name}}Endpoint(svc),
+	{{- end}}
+	}
+	{{- range .Service.Method}}
+	for _, m := range mdw["{{.Name}}"] {
+		eps.{{.Name}}Endpoint = m(eps.{{.Name}}Endpoint)
+	}
+	{{- end}}
+	return eps
+}
+{{range .Service.Method}}
+func (e Endpoints) {{.Name}}(ctx context.Context, in *api.{{.InputType | splitArray "." | last}}) (*api.{{.OutputType | splitArray "." | last}}, error) {
+    out, err := e.{{.Name}}Endpoint(ctx, in)
+    return out.(*api.{{.OutputType | splitArray "." | last}}), err
+}
+{{end}}
+
+{{range .Service.Method}}
+func Make{{.Name}}Endpoint(svc api.{{$.Service.Name}}Server) kit.Endpoint {
+    return func(ctx context.Context, request interface{}) (interface{}, error) {
+        req := request.(*api.{{.InputType | splitArray "." | last}})
+        resp, err := svc.{{.Name}}(ctx, req)
+        return resp, err
+    }
+}
+{{end}}

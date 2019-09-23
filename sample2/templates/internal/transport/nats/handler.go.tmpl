@@ -1,0 +1,47 @@
+package nats
+
+import (
+	"context"
+	"encoding/json"
+
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+
+	kitnats "github.com/go-kit/kit/transport/nats"
+	"github.com/nats-io/nats.go"
+)
+
+type natsServer struct {
+    {{- range .Service.Method}}
+	{{.Name}}Handler   *kitnats.Subscriber
+    {{- end}}
+}
+
+// NewNATSServer
+func NewNATSServer(endpoints endpoint.Endpoints, options map[string][]kitnats.SubscriberOption) natsServer {
+	return natsServer{
+        {{- range .Service.Method}}
+		{{.Name}}Handler:   make{{.Name}}Handler(endpoints, options["{{.Name}}"]),
+        {{- end}}
+	}
+}
+{{range .Service.Method}}
+func make{{.Name}}Handler(endpoints endpoint.Endpoints, options []kitnats.SubscriberOption) *kitnats.Subscriber {
+	handler := kitnats.NewSubscriber(
+		endpoints.{{.Name}}Endpoint,
+		decode{{.Name}}Request,
+		kitnats.EncodeJSONResponse,
+		options...,
+	)
+	return handler
+}
+{{end -}}
+{{range .Service.Method}}
+func decode{{.Name}}Request(ctx context.Context, msg *nats.Msg) (interface{}, error) {
+	var request api.{{.InputType | splitArray "." | last}}
+	if err := json.Unmarshal(msg.Data, &request); err != nil {
+		return nil, err
+	}
+	return &request, nil
+}
+{{end}}

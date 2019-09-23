@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package api;
+
+service User {
+ rpc Find (FindUserRequest) returns (FindUserReply);
+ rpc Update (UpdateUserRequest) returns (UpdateUserReply);
+}
+
+message FindUserRequest {
+    string id=1;
+}
+
+message FindUserReply {
+	string id         =1;
+	string username  =2; 
+	string nickname  =3; 
+	string password  =4; 
+	string intro     =5; 
+	bool is_approved =6;
+	string created_at=7;   // created time, need convert
+	string updated_at=8;  
+}
+message UpdateUserRequest
+{
+	string id         =1;
+	string username  =2; 
+	string nickname  =3; 
+	string password  =4; 
+	string intro     =5; 
+}
+
+message UpdateUserReply {
+	string err=1;  
+}
+
