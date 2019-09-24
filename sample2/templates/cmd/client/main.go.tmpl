@@ -1,0 +1,7 @@
+package main
+
+import "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/cmd/client/internal"
+
+func main() {
+	internal.Run()
+}

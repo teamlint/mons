@@ -1,0 +1,33 @@
+package http
+
+import (
+	"context"
+	"encoding/json"
+	"net/http"
+
+	kithttp "github.com/go-kit/kit/transport/http"
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+)
+
+func NewHTTPHandler(endpoints endpoint.Endpoints, options map[string][]kithttp.ServerOption) http.Handler {
+	m := http.NewServeMux()
+    {{- range .Service.Method}}
+	make{{.Name}}Handler(m, endpoints, options["{{.Name}}"])
+    {{- end}}
+	return m
+}
+{{range .Service.Method}}
+func make{{.Name}}Handler(m *http.ServeMux, endpoints endpoint.Endpoints, options []kithttp.ServerOption) {
+	m.Handle("/{{$.Service.Name | lower}}/{{.Name | lower}}", kithttp.NewServer(endpoints.{{.Name}}Endpoint, decode{{.Name}}Request, kithttp.EncodeJSONResponse, options...))
+}
+{{end -}}
+{{range .Service.Method}}
+func decode{{.Name}}Request(ctx context.Context, req *http.Request) (interface{}, error) {
+	var request api.{{.InputType | splitArray "." | last}}
+	if err := json.NewDecoder(req.Body).Decode(&request); err != nil {
+		return nil, err
+	}
+	return &request, nil
+}
+{{end}}

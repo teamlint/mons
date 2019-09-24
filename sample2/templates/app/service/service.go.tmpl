@@ -1,0 +1,28 @@
+package service
+
+import (
+	"context"
+    "fmt"
+
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+)
+
+type {{.Service.Name | lower}}Service struct{}
+
+func New{{.Service.Name}}Service() api.{{.Service.Name}}Server {
+    return &{{.Service.Name | lower}}Service{}
+}
+
+func New(mdw []Middleware) api.{{.Service.Name}}Server {
+    svc := New{{.Service.Name}}Service()
+	for _, m := range mdw {
+		svc = m(svc)
+	}
+	return svc
+}
+{{range .Service.Method}}
+func (s *{{$.Service.Name | lower}}Service) {{.Name}}(ctx context.Context, req *api.{{.InputType | splitArray "." | last}}) (*api.{{.OutputType | splitArray "." | last}}, error) {
+    // TODO
+	return nil, fmt.Errorf("not implemented")
+}
+{{end}}

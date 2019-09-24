@@ -1,0 +1,33 @@
+package service
+
+import (
+	"context"
+
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+
+	kitlog "github.com/go-kit/kit/log"
+)
+
+// Middleware describes a service middleware.
+type Middleware func(api.{{.Service.Name}}Server) api.{{.Service.Name}}Server
+
+type loggingMiddleware struct {
+	logger kitlog.Logger
+	next   api.{{.Service.Name}}Server
+}
+
+// LoggingMiddleware takes a logger as a dependency
+// and returns a api.{{.Service.Name}}Server Middleware.
+func LoggingMiddleware(logger kitlog.Logger) Middleware {
+	return func(next api.{{.Service.Name}}Server) api.{{.Service.Name}}Server {
+		return &loggingMiddleware{logger, next}
+	}
+}
+{{range .Service.Method}}
+func (l loggingMiddleware) {{.Name}}(ctx context.Context, req *api.{{.InputType | splitArray "." | last}}) (reply *api.{{.OutputType | splitArray "." | last}}, err error) {
+	defer func() {
+		_ = l.logger.Log("method", "{{.Name}}", "request", req, "reply", reply, "err", err)
+	}()
+	return l.next.{{.Name}}(ctx, req)
+}
+{{end}}

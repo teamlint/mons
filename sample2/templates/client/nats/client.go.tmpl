@@ -1,0 +1,40 @@
+package nats
+
+import (
+	"context"
+	"encoding/json"
+
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+
+	kitnats "github.com/go-kit/kit/transport/nats"
+
+	"github.com/nats-io/nats.go"
+)
+
+// NewNATSClient
+func New(nc *nats.Conn, options map[string][]kitnats.PublisherOption) (api.{{.Service.Name}}Server, error) {
+    {{- range .Service.Method}}
+	{{.Name | lower}}Endpoint := kitnats.NewPublisher(
+		nc,
+		"{{$.Service.Name}}.{{.Name}}",
+		kitnats.EncodeJSONRequest,
+		decode{{.Name}}Response,
+		options["{{.Name}}"]...,
+	).Endpoint()
+    {{end}}
+	return endpoint.Endpoints{
+        {{- range .Service.Method}}
+		{{.Name}}Endpoint:   {{.Name | lower}}Endpoint,
+        {{- end}}
+	}, nil
+}
+{{range .Service.Method}}
+func decode{{.Name}}Response(ctx context.Context, msg *nats.Msg) (interface{}, error) {
+	var response api.{{.OutputType | splitArray "." | last}}
+	if err := json.Unmarshal(msg.Data, &response); err != nil {
+		return nil, err
+	}
+	return &response, nil
+}
+{{end}}

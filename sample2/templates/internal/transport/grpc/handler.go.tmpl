@@ -1,0 +1,47 @@
+package grpc
+
+import (
+	"context"
+
+	kitgrpc "github.com/go-kit/kit/transport/grpc"
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+)
+
+type grpcServer struct {
+    {{- range .Service.Method}}
+	{{.Name}}Handler   kitgrpc.Handler
+    {{- end}}
+}
+
+// NewGRPCServer makes a set of endpoints available as a gRPC server
+func NewGRPCServer(endpoints endpoint.Endpoints, options map[string][]kitgrpc.ServerOption) api.{{.Service.Name}}Server {
+	return &grpcServer{
+        {{- range .Service.Method}}
+		{{.Name}}Handler:   make{{.Name}}Handler(endpoints, options["{{.Name}}"]),
+        {{- end}}
+	}
+}
+{{range .Service.Method}}
+func make{{.Name}}Handler(endpoints endpoint.Endpoints, options []kitgrpc.ServerOption) kitgrpc.Handler {
+	return kitgrpc.NewServer(endpoints.{{.Name}}Endpoint, decodeRequest, encode{{.Name}}Response, options...)
+}
+{{end}}
+func decodeRequest(ctx context.Context, req interface{}) (interface{}, error) {
+	return req, nil
+}
+{{range .Service.Method}}
+func encode{{.Name}}Response(ctx context.Context, response interface{}) (interface{}, error) {
+	resp := response.(*api.{{.OutputType | splitArray "." | last}})
+	return resp, nil
+}
+{{end -}}
+{{range .Service.Method}}
+func (g *grpcServer) {{.Name}}(ctx context.Context, req *api.{{.InputType | splitArray "." | last}}) (*api.{{.OutputType | splitArray "." | last}}, error) {
+	_, resp, err := g.{{.Name}}Handler.ServeGRPC(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return resp.(*api.{{.OutputType | splitArray "." | last}}), nil
+}
+{{end}}
