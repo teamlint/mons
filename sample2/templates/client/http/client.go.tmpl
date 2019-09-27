@@ -59,3 +59,8 @@ func decode{{.Name}}Response(ctx context.Context, r *http.Response) (interface{}
 }
 {{- end}}
 
+func copyURL(base *url.URL, path string) *url.URL {
+	next := *base
+	next.Path = path
+	return &next
+}

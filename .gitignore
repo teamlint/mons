@@ -14,5 +14,6 @@
 .task/
 sample/cmd/ui/web/web
 sample/cmd/server/server
+sample2/services/user/cmd/server/server
 
 .DS_Store

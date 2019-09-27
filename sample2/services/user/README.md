@@ -80,7 +80,7 @@ func main(){
 ```
 
 ## Build Information
-- BuildDate     2019-09-27 17:30:56.269787 +0800 CST m=+0.008048997      
+- BuildDate     2019-09-27 18:43:17.366587 +0800 CST m=+0.007811720      
 - BuildHostname venjiang 
 - BuildUser     venjiang
 - GoPWD         github.com/teamlint/mons/sample2/services/user

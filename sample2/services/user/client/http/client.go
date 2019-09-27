@@ -67,3 +67,8 @@ func decodeUpdateResponse(ctx context.Context, r *http.Response) (interface{}, e
 	return &resp, err
 }
 
+func copyURL(base *url.URL, path string) *url.URL {
+	next := *base
+	next.Path = path
+	return &next
+}
