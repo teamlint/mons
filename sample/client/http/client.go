@@ -15,7 +15,6 @@ import (
 	"github.com/teamlint/mons/sample/application/service"
 	handler "github.com/teamlint/mons/sample/application/transport/http"
 
-	kitendpoint "github.com/go-kit/kit/endpoint"
 	kithttp "github.com/go-kit/kit/transport/http"
 )
 
@@ -27,14 +26,22 @@ func New(instance string, options map[string][]kithttp.ClientOption) (service.Us
 	if err != nil {
 		return nil, err
 	}
-	var findUserEndpoint kitendpoint.Endpoint
-	var updateUserEndpoint kitendpoint.Endpoint
-	{
-		findUserEndpoint = kithttp.NewClient("POST", copyURL(u, "/user/find"), encodeHTTPGenericRequest, decodeFindUserResponse, options["FindUser"]...).Endpoint()
-		updateUserEndpoint = kithttp.NewClient("POST", copyURL(u, "/user/update"), encodeHTTPGenericRequest, decodeUpdateUserResponse, options["UpdateUser"]...).Endpoint()
-	}
-
-	return endpoint.Endpoints{FindUserEndpoint: findUserEndpoint, UpdateUserEndpoint: updateUserEndpoint}, nil
+	findUserEndpoint := kithttp.NewClient(
+		"POST",
+		copyURL(u, "/user/find"),
+		encodeHTTPGenericRequest, decodeFindUserResponse,
+		options["FindUser"]...,
+	).Endpoint()
+	updateUserEndpoint := kithttp.NewClient(
+		"POST",
+		copyURL(u, "/user/update"),
+		encodeHTTPGenericRequest, decodeUpdateUserResponse,
+		options["UpdateUser"]...,
+	).Endpoint()
+	return endpoint.Endpoints{
+		FindUserEndpoint:   findUserEndpoint,
+		UpdateUserEndpoint: updateUserEndpoint,
+	}, nil
 }
 
 // EncodeHTTPGenericRequest is a transport/http.EncodeRequestFunc that

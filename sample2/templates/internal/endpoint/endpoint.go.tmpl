@@ -1,11 +1,12 @@
 package endpoint
-{{$file := .File}}
+
 import (
 	"context"
 
 	kit "github.com/go-kit/kit/endpoint"
     api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
 )
+
 // Endpoints {{.Service.Name}} endpoints
 type Endpoints struct {
 {{- range .Service.Method}}
@@ -29,7 +30,10 @@ func New(svc api.{{.Service.Name}}Server, mdw map[string][]kit.Middleware) Endpo
 {{range .Service.Method}}
 func (e Endpoints) {{.Name}}(ctx context.Context, in *api.{{.InputType | splitArray "." | last}}) (*api.{{.OutputType | splitArray "." | last}}, error) {
     out, err := e.{{.Name}}Endpoint(ctx, in)
-    return out.(*api.{{.OutputType | splitArray "." | last}}), err
+    if err !=nil {
+        return nil, err
+    }
+    return out.(*api.{{.OutputType | splitArray "." | last}}), nil
 }
 {{end}}
 

@@ -3,6 +3,7 @@ package nats
 import (
 	"context"
 	"encoding/json"
+	"errors"
 
     api "github.com/teamlint/mons/sample2/services/user/api"
     "github.com/teamlint/mons/sample2/services/user/internal/endpoint"
@@ -37,6 +38,13 @@ func New(nc *nats.Conn, options map[string][]kitnats.PublisherOption) (api.UserS
 }
 
 func decodeFindResponse(ctx context.Context, msg *nats.Msg) (interface{}, error) {
+	var errResponse api.ErrorResponse
+	if err := json.Unmarshal(msg.Data, &errResponse); err != nil {
+		return nil, err
+	}
+	if errResponse.Error != nil && errResponse.Error.Code == "_internal_" {
+		return nil, errors.New(errResponse.Error.Message)
+	}
 	var response api.FindUserReply
 	if err := json.Unmarshal(msg.Data, &response); err != nil {
 		return nil, err
@@ -45,6 +53,13 @@ func decodeFindResponse(ctx context.Context, msg *nats.Msg) (interface{}, error)
 }
 
 func decodeUpdateResponse(ctx context.Context, msg *nats.Msg) (interface{}, error) {
+	var errResponse api.ErrorResponse
+	if err := json.Unmarshal(msg.Data, &errResponse); err != nil {
+		return nil, err
+	}
+	if errResponse.Error != nil && errResponse.Error.Code == "_internal_" {
+		return nil, errors.New(errResponse.Error.Message)
+	}
 	var response api.UpdateUserReply
 	if err := json.Unmarshal(msg.Data, &response); err != nil {
 		return nil, err

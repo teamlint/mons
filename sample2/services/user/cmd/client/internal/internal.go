@@ -8,17 +8,15 @@ import (
 	"os"
 	"strconv"
 	"time"
-
-	api "github.com/teamlint/mons/sample2/services/user/api"
-	/*
-		grpcclient "github.com/teamlint/mons/sample/client/grpc"
-		httpclient "github.com/teamlint/mons/sample/client/http"
-	*/
-	natsclient "github.com/teamlint/mons/sample2/services/user/client/nats"
-	/*
-		kitgrpc "github.com/go-kit/kit/transport/grpc"
-		kithttp "github.com/go-kit/kit/transport/http"
-	*/
+    
+	"github.com/fatih/structs"
+    api "github.com/teamlint/mons/sample2/services/user/api"
+	grpcclient "github.com/teamlint/mons/sample2/services/user/client/grpc"
+	httpclient "github.com/teamlint/mons/sample2/services/user/client/http"
+    natsclient "github.com/teamlint/mons/sample2/services/user/client/nats"
+	"google.golang.org/grpc"
+	kitgrpc "github.com/go-kit/kit/transport/grpc"
+	kithttp "github.com/go-kit/kit/transport/http"
 	kitnats "github.com/go-kit/kit/transport/nats"
 
 	"github.com/nats-io/nats.go"
@@ -44,27 +42,25 @@ func Run() {
 	start := time.Now()
 	// client
 	switch *trans {
-	/*
-		case "http":
-			log.Println("== [http client] ===")
-			client, err = httpclient.New(*httpAddr, map[string][]kithttp.ClientOption{})
-			if err != nil {
-				log.Fatalf("[http] client instance error: %v", err)
-			}
-			elapse(start, "[%s] connect time", *trans)
-		case "grpc":
-			log.Println("== [grpc client] ===")
-			conn, err := grpc.Dial(*grpcAddr, grpc.WithInsecure())
-			if err != nil {
-				log.Fatalf("[grpc] connect error: %v", err)
-			}
-			defer conn.Close()
-			client, err = grpcclient.New(conn, map[string][]kitgrpc.ClientOption{})
-			if err != nil {
-				log.Fatalf("[http] client instance error: %v", err)
-			}
-			elapse(start, "[%s] connect time", *trans)
-	*/
+	case "http":
+		log.Println("== [http client] ===")
+		client, err = httpclient.New(*httpAddr, map[string][]kithttp.ClientOption{})
+		if err != nil {
+			log.Fatalf("[http] client instance error: %v", err)
+		}
+		elapse(start, "[%s] connect time", *trans)
+	case "grpc":
+		log.Println("== [grpc client] ===")
+		conn, err := grpc.Dial(*grpcAddr, grpc.WithInsecure())
+		if err != nil {
+			log.Fatalf("[grpc] connect error: %v", err)
+		}
+		defer conn.Close()
+		client, err = grpcclient.New(conn, map[string][]kitgrpc.ClientOption{})
+		if err != nil {
+			log.Fatalf("[http] client instance error: %v", err)
+		}
+		elapse(start, "[%s] connect time", *trans)
 	default:
 		log.Println("=== [nats client] ===")
 		nc, err = nats.Connect(*natsAddr)
@@ -81,31 +77,41 @@ func Run() {
 
 	begin := time.Now()
 	ctx := context.Background()
-
-	// User.Find
+    
+    // User.Find
 	start = time.Now()
 	findReq := api.FindUserRequest{
 		Id: "123",
 	}
 	findResult, err := client.Find(ctx, &findReq)
 	if err != nil {
-		log.Println(err)
+		log.Printf("[Find] err: %v\n", err)
 		return
 	}
-	elapse(start, "[client.%s] Find result: %+v, err: %v", *trans, *findResult, err)
-
-	// User.Update
+	findErr, ok := structs.New(findResult).FieldOk("Error")
+    // if has Error field, you can direct use struct.Error
+	if ok && findErr.Value() != nil {
+		log.Printf("[Find] business err: %v\n", findErr.Value())
+	}
+	elapse(start, "[client.%s] Find result: %+v", *trans, *findResult)
+    
+    // User.Update
 	start = time.Now()
 	updateReq := api.UpdateUserRequest{
 		Id: "123",
 	}
 	updateResult, err := client.Update(ctx, &updateReq)
 	if err != nil {
-		log.Println(err)
+		log.Printf("[Update] err: %v\n", err)
 		return
 	}
-	elapse(start, "[client.%s] Update result: %+v, err: %v", *trans, *updateResult, err)
-
+	updateErr, ok := structs.New(updateResult).FieldOk("Error")
+    // if has Error field, you can direct use struct.Error
+	if ok && updateErr.Value() != nil {
+		log.Printf("[Update] business err: %v\n", updateErr.Value())
+	}
+	elapse(start, "[client.%s] Update result: %+v", *trans, *updateResult)
+    
 	// load
 	elapse(begin, "[client.%s] load time", *trans)
 }

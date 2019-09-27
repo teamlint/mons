@@ -3,25 +3,81 @@
 version: '2'
 
 vars:
-  GREETING: Hello, World!
-  Service: UserService
+  Service: User
 
 tasks:
   default:
     cmds:
-      - echo "micro service demo"
+      - echo "User micro service"
       - task: pb
-      - task: svc
+      - task: gen
     silent: true
   pb:
     cmds:
-      - echo "{{.Service}} proto grpc code generating..."
-      - protoc --go_out=plugins=grpc:. api/*.proto
-      - echo "{{.Service}} proto grpc code generated."
+      - echo "User service proto grpc code generating..."
+      - protoc --proto_path=../../templates/api --go_out=plugins=grpc:./api ../../templates/api/error_response.proto
+      - protoc --proto_path=./api --proto_path=../../templates/api --go_out=plugins=grpc:./api api/*.proto
+      - echo "User service proto grpc code generated."
     silent: false
-  svc:
+  gen:
     cmds:
-      - echo "{{.Service}} micro service code generating..."
-      - protoc -I. --gotemplate_out=template_dir=../../templates,debug=true,all=false:. api/*.proto
-      - echo "{{.Service}} micro service code generated."
+      - echo "User micro service code generating..."
+      - protoc --proto_path=./api --proto_path=../../templates/api --gotemplate_out=template_dir=../../templates,debug=true,all=false:. api/*.proto
+      - echo "User micro service code generated."
     silent: false
+  server:
+    deps: [build]
+    dir: ./cmd/server
+    cmds:
+      - echo 'run server'
+      - ./server
+    desc: build server & run server
+  go-server:
+    dir: ./cmd/server/
+    cmds:
+      - echo 'server starting...'
+      - go run main.go 
+    silent: true
+    desc: run server used by 'go run'
+  build:
+    dir: ./cmd/server
+    cmds:
+      - go build -v -o ./server ./main.go
+    sources:
+      - './**/*.go'
+    desc: build server
+  api:
+    # deps: [server]
+    deps:
+      - task: server
+    cmds:
+      - echo 'api starting...'
+      - task: client
+    silent: true
+    desc: api test 
+  client:
+    dir: ./cmd/client/
+    cmds:
+        - task: client-ts
+          vars: {ts: "http"}
+        - task: client-ts
+          vars: {ts: "nats"}
+        - task: client-ts
+          vars: {ts: "grpc"}
+    silent: true
+    desc: run all client
+  client-ts:
+    dir: ./cmd/client/
+    cmds:
+      - echo api cient {{ .ts }} starting...
+      - echo '---------------------------------------------------------------------------------' 
+      - go run main.go --ts={{ .ts }}
+      - echo '---------------------------------------------------------------------------------' 
+    silent: true
+    desc: run transport protocol client, used var 'ts'
+  gv:
+    cmds:
+      - echo generate di graph image 
+      - dot -Tpng -o di.png di.gv
+    silent: true
+    desc: generate graphviz dot file

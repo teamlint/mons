@@ -1,0 +1,61 @@
+package http
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+    "errors"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
+
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+
+	kithttp "github.com/go-kit/kit/transport/http"
+)
+
+func New(instance string, options map[string][]kithttp.ClientOption) (api.{{.Service.Name}}Server, error) {
+	if !strings.HasPrefix(instance, "http") {
+		instance = "http://" + instance
+	}
+	u, err := url.Parse(instance)
+	if err != nil {
+		return nil, err
+	}
+    {{- range .Service.Method}}
+	{{.Name | lower}}Endpoint := kithttp.NewClient(
+		"POST",
+		copyURL(u, "/{{$.Service.Name | lower}}/{{.Name | lower}}"),
+		encodeHTTPGenericRequest, decode{{.Name}}Response,
+		options["{{.Name}}"]...,
+	).Endpoint()
+    {{- end}}
+	return endpoint.Endpoints{
+        {{- range .Service.Method}}
+		{{.Name}}Endpoint:   {{.Name | lower}}Endpoint,
+        {{- end}}
+	}, nil
+}
+
+func encodeHTTPGenericRequest(ctx context.Context, r *http.Request, request interface{}) error {
+	var buf bytes.Buffer
+	if err := json.NewEncoder(&buf).Encode(request); err != nil {
+		return err
+	}
+	r.Body = ioutil.NopCloser(&buf)
+	return nil
+}
+
+{{- range .Service.Method}}
+func decode{{.Name}}Response(ctx context.Context, r *http.Response) (interface{}, error) {
+	if r.StatusCode != http.StatusOK {
+		return nil, errors.New(r.Status)
+	}
+	var resp api.{{.OutputType | splitArray "." | last}}
+	err := json.NewDecoder(r.Body).Decode(&resp)
+	return &resp, err
+}
+{{- end}}
+

@@ -27,6 +27,7 @@ func NewNATSServer(endpoints endpoint.Endpoints, options map[string][]kitnats.Su
 }
 {{range .Service.Method}}
 func make{{.Name}}Handler(endpoints endpoint.Endpoints, options []kitnats.SubscriberOption) *kitnats.Subscriber {
+	options = append(options, SubscriberErrorOption())
 	handler := kitnats.NewSubscriber(
 		endpoints.{{.Name}}Endpoint,
 		decode{{.Name}}Request,

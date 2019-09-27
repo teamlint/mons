@@ -31,14 +31,6 @@ import (
 	"github.com/nats-io/nats.go"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	// svcimpl "github.com/teamlint/mons/sample/adapter/application/service"
-	// dosvcimpl "github.com/teamlint/mons/sample/adapter/domain/service"
-
-	// "github.com/teamlint/mons/sample/application/event"
-	// dosvc "github.com/teamlint/mons/sample/domain/service"
-	// shared "github.com/teamlint/mons/shared/adapter/repository"
-	// sharedevent "github.com/teamlint/mons/shared/application/event"
-	// natsevent "github.com/teamlint/mons/shared/application/event/nats"
 )
 
 var (

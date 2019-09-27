@@ -1,5 +1,84 @@
 # {{.Service.Name}}Service
 
+## API 
+
+### Service interfaces
+- package
+```go
+{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api
+```
+
+- interface
+```go
+type {{.Service.Name}}Server interface {
+    {{- range .Service.Method}}
+	{{.Name}}(context.Context, *{{.InputType | splitArray "." | last}}) (*{{.OutputType | splitArray "." | last}}, error)
+    {{- end}}
+}
+```
+
+### Message types
+{{- range .File.MessageType}}
+- {{.Name}}
+{{- end}}
+
+## Client
+
+### HTTP
+
+### gRPC
+
+### NATS
+- package
+```go
+import natsclient "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/client/nats"
+```
+
+- example
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+    natsclient "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/client/nats"
+    kitnats "github.com/go-kit/kit/transport/nats"
+
+    "github.com/nats-io/nats.go"
+)
+
+func main(){
+	var (
+		client api.{{.Service.Name}}Server
+		nc     *nats.Conn
+		err    error
+	)
+
+    nc, err = nats.Connect(nats.DefaultURL)
+    if err != nil {
+        log.Fatalf("[nats] connect error: %v", err)
+    }
+    defer nc.Close()
+
+    client, err = natsclient.New(nc, map[string][]kitnats.PublisherOption{})
+    if err != nil {
+        log.Fatalf("[nats] client instance error: %v", err)
+    }
+    {{$method := .Service.Method | first}}
+    // {{.Service.Name}}Server.{{$method.Name}}
+    ctx := context.Background()
+    {{$method.Name | lower}}Req := api.{{$method.InputType | splitArray "." | last}}{...}
+    {{$method.Name | lower}}Result, err := client.{{$method.Name}}(ctx, &{{$method.Name | lower}}Req)
+    if err != nil {
+        log.Fatalf("[{{$method.Name}}] err: %v\n", err)
+        return
+    }
+    log.Printf("[{{$method.Name}}] result: %+v\n", *{{$method.Name | lower}}Result)
+}
+```
+
 ## Build Information
 - BuildDate     {{.BuildDate}}      
 - BuildHostname {{.BuildHostname}} 
@@ -15,6 +94,3 @@
 - Service       {{.Service}}
 - Enum          {{.Enum}}  
 
-## TODO
-- protoc grpc 生成代码简化, 只要模型和接口
-- client 调用错误处理及显示  

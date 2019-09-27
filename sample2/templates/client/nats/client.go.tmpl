@@ -3,6 +3,7 @@ package nats
 import (
 	"context"
 	"encoding/json"
+	"errors"
 
     api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
     "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
@@ -31,6 +32,13 @@ func New(nc *nats.Conn, options map[string][]kitnats.PublisherOption) (api.{{.Se
 }
 {{range .Service.Method}}
 func decode{{.Name}}Response(ctx context.Context, msg *nats.Msg) (interface{}, error) {
+	var errResponse api.ErrorResponse
+	if err := json.Unmarshal(msg.Data, &errResponse); err != nil {
+		return nil, err
+	}
+	if errResponse.Error != nil && errResponse.Error.Code == "_internal_" {
+		return nil, errors.New(errResponse.Error.Message)
+	}
 	var response api.{{.OutputType | splitArray "." | last}}
 	if err := json.Unmarshal(msg.Data, &response); err != nil {
 		return nil, err

@@ -25,6 +25,7 @@ func NewNATSServer(endpoints endpoint.Endpoints, options map[string][]kitnats.Su
 }
 
 func makeFindHandler(endpoints endpoint.Endpoints, options []kitnats.SubscriberOption) *kitnats.Subscriber {
+	options = append(options, SubscriberErrorOption())
 	handler := kitnats.NewSubscriber(
 		endpoints.FindEndpoint,
 		decodeFindRequest,
@@ -35,6 +36,7 @@ func makeFindHandler(endpoints endpoint.Endpoints, options []kitnats.SubscriberO
 }
 
 func makeUpdateHandler(endpoints endpoint.Endpoints, options []kitnats.SubscriberOption) *kitnats.Subscriber {
+	options = append(options, SubscriberErrorOption())
 	handler := kitnats.NewSubscriber(
 		endpoints.UpdateEndpoint,
 		decodeUpdateRequest,

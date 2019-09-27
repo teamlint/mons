@@ -1,0 +1,43 @@
+package grpc
+
+import (
+	"context"
+
+	kitgrpc "github.com/go-kit/kit/transport/grpc"
+    "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/internal/endpoint"
+    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
+	grpc "google.golang.org/grpc"
+)
+
+// New returns a service backed by a gRPC server at the other end of the conn.
+func New(conn *grpc.ClientConn, options map[string][]kitgrpc.ClientOption) (api.{{.Service.Name}}Server, error) {
+    {{- range .Service.Method}}
+	{{.Name | lower}}Endpoint := kitgrpc.NewClient(
+        conn,
+		"api.{{$.Service.Name}}",
+		"{{.Name}}",
+		encode{{.Name}}Request,
+		decode{{.Name}}Response,
+		api.{{.OutputType | splitArray "." | last}}{},
+		options["{{.Name}}"]...,
+	).Endpoint()
+    {{- end}}
+	return endpoint.Endpoints{
+        {{- range .Service.Method}}
+		{{.Name}}Endpoint:   {{.Name | lower}}Endpoint,
+        {{- end}}
+	}, nil
+}
+
+{{- range .Service.Method}}
+func encode{{.Name}}Request(ctx context.Context, request interface{}) (interface{}, error) {
+	req := request.(*api.{{.InputType | splitArray "." | last}})
+	return req, nil
+}
+
+func decode{{.Name}}Response(ctx context.Context, reply interface{}) (interface{}, error) {
+	rpl := reply.(*api.{{.OutputType | splitArray "." | last}})
+    return rpl, nil
+}
+{{- end}}
+

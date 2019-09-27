@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "error_response.proto";
+
 package api;
 
 service User {
@@ -20,6 +22,7 @@ message FindUserReply {
 	bool is_approved =6;
 	string created_at=7;   // created time, need convert
 	string updated_at=8;  
+    Error error=99;
 }
 message UpdateUserRequest
 {
@@ -33,4 +36,7 @@ message UpdateUserRequest
 message UpdateUserReply {
 	string err=1;  
 }
-
+/* message Error{ */
+/*     string code=1; */
+/*     string message=2; */
+/* } */

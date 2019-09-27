@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 
 	"github.com/teamlint/golog"
@@ -54,21 +55,25 @@ func NewUserService(conf UserServiceConfig) appsvc.UserService {
 	}
 }
 func (s *UserService) Find(_ context.Context, query *query.UserQuery) (*dto.User, error) {
-	user, err := s.UserRepo.FindByID(s.RepoContext, query.ID)
-	if err != nil {
-		return nil, err
-	}
-	dtoUser := dto.User{}
-	if err := dtoUser.From(user); err != nil {
-		return nil, err
-	}
-	// event
-	eventData, err := json.Marshal(query)
-	if err != nil {
-		golog.Errorf("[adapter.UserService.Find] %v", err)
-	}
-	go s.Eventer.Publish(sharedevent.New(query.ID, event.EventUserType, event.EventUserFind, eventData))
-	return &dtoUser, nil
+	/*
+		user, err := s.UserRepo.FindByID(s.RepoContext, query.ID)
+		if err != nil {
+			return nil, err
+		}
+		dtoUser := dto.User{}
+		if err := dtoUser.From(user); err != nil {
+			return nil, err
+		}
+			// event
+			eventData, err := json.Marshal(query)
+			if err != nil {
+				golog.Errorf("[adapter.UserService.Find] %v", err)
+			}
+			go s.Eventer.Publish(sharedevent.New(query.ID, event.EventUserType, event.EventUserFind, eventData))
+	*/
+	// return &dtoUser, nil
+	golog.Errorf("[adapter.UserService.Find] error test")
+	return nil, fmt.Errorf("[error] Find method error test")
 
 }
 func (s *UserService) Update(_ context.Context, cmd *command.UpdateUserCommand) error {

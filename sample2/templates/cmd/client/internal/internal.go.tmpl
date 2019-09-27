@@ -7,20 +7,16 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"strings"
 	"time"
-
-    api "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/api"
-    /*
-	grpcclient "github.com/teamlint/mons/sample/client/grpc"
-	httpclient "github.com/teamlint/mons/sample/client/http"
-    */
-    natsclient "{{cat .GoPWD "/" .DestinationDir | nospace | clean}}/client/nats"
+    {{$pkg := cat .GoPWD "/" .DestinationDir | nospace | clean}}
+	"github.com/fatih/structs"
+    api "{{$pkg}}/api"
+	grpcclient "{{$pkg}}/client/grpc"
+	httpclient "{{$pkg}}/client/http"
+    natsclient "{{$pkg}}/client/nats"
 	"google.golang.org/grpc"
-    /*
 	kitgrpc "github.com/go-kit/kit/transport/grpc"
 	kithttp "github.com/go-kit/kit/transport/http"
-    */
 	kitnats "github.com/go-kit/kit/transport/nats"
 
 	"github.com/nats-io/nats.go"
@@ -46,7 +42,6 @@ func Run() {
 	start := time.Now()
 	// client
 	switch *trans {
-    /*
 	case "http":
 		log.Println("== [http client] ===")
 		client, err = httpclient.New(*httpAddr, map[string][]kithttp.ClientOption{})
@@ -66,7 +61,6 @@ func Run() {
 			log.Fatalf("[http] client instance error: %v", err)
 		}
 		elapse(start, "[%s] connect time", *trans)
-    */
 	default:
 		log.Println("=== [nats client] ===")
 		nc, err = nats.Connect(*natsAddr)
@@ -89,10 +83,17 @@ func Run() {
 	{{.Name | lower}}Req := api.{{.InputType | splitArray "." | last}}{
 		Id: "123",
 	}
-	{{.Name | lower}}Result, err := client.{{.Name}}(ctx, &{{.Name | lower}}Req)
+    {{- $result:= cat (.Name | lower) "Result" | nospace | clean}}
+	{{$result}}, err := client.{{.Name}}(ctx, &{{.Name | lower}}Req)
 	if err != nil {
-		log.Println(err)
+		log.Printf("[{{.Name}}] err: %v\n", err)
 		return
+	}
+    {{- $errField := cat (.Name | lower) "Err" | nospace | clean}}
+	{{$errField}}, ok := structs.New({{$result}}).FieldOk("Error")
+    // if has Error field, you can direct use struct.Error
+	if ok && {{$errField}}.Value() != nil {
+		log.Printf("[{{.Name}}] business err: %v\n", {{$errField}}.Value())
 	}
 	elapse(start, "[client.%s] {{.Name}} result: %+v", *trans, *{{.Name | lower}}Result)
     {{end}}

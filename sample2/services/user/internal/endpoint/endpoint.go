@@ -6,6 +6,7 @@ import (
 	kit "github.com/go-kit/kit/endpoint"
     api "github.com/teamlint/mons/sample2/services/user/api"
 )
+
 // Endpoints User endpoints
 type Endpoints struct {
     FindEndpoint kit.Endpoint
@@ -28,12 +29,18 @@ func New(svc api.UserServer, mdw map[string][]kit.Middleware) Endpoints {
 
 func (e Endpoints) Find(ctx context.Context, in *api.FindUserRequest) (*api.FindUserReply, error) {
     out, err := e.FindEndpoint(ctx, in)
-    return out.(*api.FindUserReply), err
+    if err !=nil {
+        return nil, err
+    }
+    return out.(*api.FindUserReply), nil
 }
 
 func (e Endpoints) Update(ctx context.Context, in *api.UpdateUserRequest) (*api.UpdateUserReply, error) {
     out, err := e.UpdateEndpoint(ctx, in)
-    return out.(*api.UpdateUserReply), err
+    if err !=nil {
+        return nil, err
+    }
+    return out.(*api.UpdateUserReply), nil
 }
 
 

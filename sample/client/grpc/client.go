@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 
-	kitendpoint "github.com/go-kit/kit/endpoint"
 	kitgrpc "github.com/go-kit/kit/transport/grpc"
 	"github.com/teamlint/gox/convert"
 	"github.com/teamlint/mons/sample/application/command"
@@ -18,15 +17,23 @@ import (
 
 // New returns a service backed by a gRPC server at the other end of the conn.
 func New(conn *grpc.ClientConn, options map[string][]kitgrpc.ClientOption) (service.UserService, error) {
-	var findUserEndpoint kitendpoint.Endpoint
-	var updateUserEndpoint kitendpoint.Endpoint
-	{
-		// userServiceClient = pb.NewUserClient(conn)
-		// grpcClient := pb.NewNotificatorClient(conn)
-		// grpcClient.SendEmail()
-		findUserEndpoint = kitgrpc.NewClient(conn, "pb.User", "Find", encodeFindUserRequest, decodeFindUserResponse, pb.FindUserReply{}, options["FindUser"]...).Endpoint()
-		updateUserEndpoint = kitgrpc.NewClient(conn, "pb.User", "Update", encodeUpdateUserRequest, decodeUpdateUserResponse, pb.UpdateUserReply{}, options["UpdateUser"]...).Endpoint()
-	}
+	findUserEndpoint := kitgrpc.NewClient(conn,
+		"pb.User",
+		"Find",
+		encodeFindUserRequest,
+		decodeFindUserResponse,
+		pb.FindUserReply{},
+		options["FindUser"]...,
+	).Endpoint()
+	updateUserEndpoint := kitgrpc.NewClient(
+		conn,
+		"pb.User",
+		"Update",
+		encodeUpdateUserRequest,
+		decodeUpdateUserResponse,
+		pb.UpdateUserReply{},
+		options["UpdateUser"]...,
+	).Endpoint()
 
 	return endpoint.Endpoints{
 		FindUserEndpoint:   findUserEndpoint,

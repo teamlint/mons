@@ -7,10 +7,8 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"strings"
 	"time"
 
-	"github.com/teamlint/mons/sample/application/command"
 	"github.com/teamlint/mons/sample/application/query"
 	"github.com/teamlint/mons/sample/application/service"
 	grpcclient "github.com/teamlint/mons/sample/client/grpc"
@@ -91,14 +89,14 @@ func Run() {
 		return
 	}
 	elapse(start, "[client.%s] find user result: %+v", *trans, *user)
-	// update user
-	start = time.Now()
-	origin := strings.Split(user.Username, "-")[0]
-	cmd := command.UpdateUserCommandFrom(user)
-	cmd.Username = fmt.Sprintf("%v-%v", origin, time.Now().UnixNano()/1000)
-	log.Printf("[cmd] UpdateUserCommand: %+v\n", *cmd)
-	err = client.Update(ctx, cmd)
-	elapse(start, "[client.%s] update user result: %v", *trans, err == nil)
+	// // update user
+	// start = time.Now()
+	// origin := strings.Split(user.Username, "-")[0]
+	// cmd := command.UpdateUserCommandFrom(user)
+	// cmd.Username = fmt.Sprintf("%v-%v", origin, time.Now().UnixNano()/1000)
+	// log.Printf("[cmd] UpdateUserCommand: %+v\n", *cmd)
+	// err = client.Update(ctx, cmd)
+	// elapse(start, "[client.%s] update user result: %v", *trans, err == nil)
 	// load
 	elapse(begin, "[client.%s] load time", *trans)
 }
